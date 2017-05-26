@@ -1,0 +1,21 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Ajout d'une catégorie</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ <form (ngSubmit)="submitForm(categoryForm.value)" #categoryForm="ngForm">
+    <ion-item>
+      <ion-label floating>Titre</ion-label>
+      <ion-input type="text" name="title" ngModel required end></ion-input>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="!categoryForm.valid">Sauvegarder</button>
+</form>
+
+
+</ion-content>

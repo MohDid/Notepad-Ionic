@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addCategory()">
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Catégories</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let category of categories" (click)="showPrompt(category)">
+      <ion-icon name="archive" item-left></ion-icon>
+        {{category.id}}
+      <div class="item-note" item-right>
+        {{category.name}}
+      </div>
+    </button>
+  </ion-list>
+  <!-- <div *ngIf="selectedItem" padding>
+    Modifier la catégorie <b>{{selectedItem.name}}</b>
+  </div> -->
+</ion-content>

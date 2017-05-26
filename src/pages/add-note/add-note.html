@@ -1,0 +1,36 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Ajout d'une note</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ <form (ngSubmit)="submitForm(noteForm.value)" #noteForm="ngForm">
+    <ion-item>
+      <ion-label floating>Titre</ion-label>
+      <ion-input type="text" name="title" ngModel required end></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Date</ion-label>
+      <ion-input type="text" placeholder="             YYYY-MM-DD" name="date" ngModel required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Category</ion-label>
+      <ion-select [(ngModel)]="category" name="category">
+        <ion-option *ngFor="let category of categories" [value]="category.name">{{category.name}}</ion-option>
+      </ion-select>
+      </ion-item>
+
+    <ion-item>
+      <ion-label floating>Contenu</ion-label>
+      <ion-textarea rows="5" name="content" ngModel required></ion-textarea>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="!noteForm.valid">Sauvegarder</button>
+</form>
+
+</ion-content>

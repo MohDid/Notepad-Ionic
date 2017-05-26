@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addNewNote()">
+        <ion-icon name="md-create"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Notes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let note of notes">
+      <ion-card-content>
+        <ion-card-title>
+          <b>{{note.title}}</b>
+        </ion-card-title>
+        <b>{{note.category}} - {{ note.date }} </b>
+        <!-- <span class="item-note">{{alnot.date.timestamp* 1000|date: 'dd/MM/yyyy'}}</span><br> -->
+        <button ion-button icon-only class="del-icon"  (click) = "delNote(note.id)" clear small>
+          <ion-icon name="trash"></ion-icon>
+        </button>
+        <button ion-button icon-only clear class="edit-icon" (click) = "editNote(note)"  small>
+          <ion-icon ios="ios-create-outline" md="ios-create"></ion-icon>
+        </button>
+       <p small>{{note.content}}</p>
+      </ion-card-content>
+    </ion-card>
+</ion-content>
